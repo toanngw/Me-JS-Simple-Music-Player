@@ -1,0 +1,10 @@
+1. Render Songs ✅
+2. Scroll Top ✅
+3. Play / Pause / Seek(Tua) ✅
+4. CD rotate ✅
+5. Next / Prev button ✅
+6. Random ✅
+7. Next / Repeat When Ended
+8. Active Song
+9. Scroll Active into View
+10. Play Song When Click
