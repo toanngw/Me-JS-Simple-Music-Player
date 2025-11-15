@@ -114,6 +114,11 @@ const app = {
         })
     },
     handleEvents() {
+        // update the track/progress bar when first load
+        audio.addEventListener('loadedmetadata', () => {
+            progress.value = 0;
+            progress.style.setProperty('--percent', '0%');
+        });
 
         // handle rotating disk
         const cdThumbAnimate = cdThumb.animate([
@@ -146,7 +151,6 @@ const app = {
         audio.onplay = function () {
             player.classList.add('playing')
             cdThumbAnimate.play()
-
         }
         // when song is paused
         audio.onpause = function () {
@@ -157,15 +161,18 @@ const app = {
         // when playback time is updated
         audio.ontimeupdate = function () {
             const progressPercent = Math.floor(this.currentTime / this.duration * 100)
-            progress.value = progressPercent
-            progress.style.setProperty('--percent', progressPercent + '%');
+            // when first load page, audio.duration = 0 -> progress = NaN
+            if (progressPercent) {
+                progress.value = progressPercent;
+                progress.style.setProperty('--percent', progressPercent + '%');
+            }
         }
 
         // when progress bar is updated (tua song)
         progress.onchange = function () {
-            const seekTime = this.value * audio.duration / 100
+            const percent = this.value
+            const seekTime = this.value / 100 * audio.duration
             audio.currentTime = seekTime
-            progress.style.setProperty('--percent', percent + '%');
         }
 
         // when clicking next song button
@@ -244,14 +251,14 @@ const app = {
         // Define properties for object
         this.defineProperties()
 
-        // Listen/ handle DOM events
-        this.handleEvents()
-
         // Load current song
         this.loadCurrentSong()
 
         // Render playlist
         this.render()
+
+        // Listen/ handle DOM events
+        this.handleEvents()
     }
 
 }
