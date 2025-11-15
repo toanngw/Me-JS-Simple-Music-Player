@@ -187,6 +187,7 @@ const app = {
             }
             audio.play()
             app.render()
+            app.scrollToActiveSong()
         }
 
         // when clicking next song button
@@ -198,6 +199,7 @@ const app = {
             }
             audio.play()
             app.render()
+            app.scrollToActiveSong()
         }
 
         // when clicking random button
@@ -221,6 +223,14 @@ const app = {
             }
         }
 
+    },
+    scrollToActiveSong() {
+        setTimeout(() => {
+            $('.song.active').scrollIntoView({
+                behavior: 'smooth',
+                block: 'end'
+            })
+        }, 200)
     },
     loadCurrentSong() {
         headingSong.textContent = this.currentSong.name
