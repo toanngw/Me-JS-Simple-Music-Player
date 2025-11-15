@@ -4,7 +4,8 @@ const $$ = document.querySelectorAll.bind(document)
 const cdThumb = $('.cd-thumb')
 const cdWidth = cdThumb.offsetWidth
 const cdHeight = cdThumb.offsetHeight;
-const heading = $('header h2')
+const headingSong = $('header h2')
+const headingSinger = $('header h6')
 const audio = $('audio')
 const playBtn = $('.btn-toggle-play')
 const player = $('.player')
@@ -13,6 +14,8 @@ const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random i')
 const repeatBtn = $('.btn-repeat i')
+$('footer .year').textContent = new Date().getFullYear();
+
 
 const app = {
     currentIndex: 0,
@@ -220,7 +223,8 @@ const app = {
 
     },
     loadCurrentSong() {
-        heading.textContent = this.currentSong.name
+        headingSong.textContent = this.currentSong.name
+        headingSinger.textContent = this.currentSong.singer
         cdThumb.style.backgroundImage = `url(${this.currentSong.image})`
         audio.src = this.currentSong.path
     },
