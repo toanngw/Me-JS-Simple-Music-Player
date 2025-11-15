@@ -11,8 +11,8 @@ const player = $('.player')
 const progress = $('.progress')
 const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
-const randomBtn = $('.btn-random')
-const repeatBtn = $('.btn-repeat')
+const randomBtn = $('.btn-random i')
+const repeatBtn = $('.btn-repeat i')
 
 const app = {
     currentIndex: 0,
@@ -87,13 +87,13 @@ const app = {
         },
     ],
     render() {
-        const htmls = this.songs.map(song => {
+        const htmls = this.songs.map((song, index) => {
             return `
-                <div class="song">
+                <div class="song ${index === this.currentIndex ? 'active' : ''}">
                     <div class="thumb" style="background-image: url(${song.image});">
                     </div>
                     <div class="body">
-                        <h3 class="title">${song.name}</h3>
+                        <h4 class="title">${song.name}</h4>
                         <p class="author">${song.singer}</p>
                     </div>
                     <div class="option">
@@ -158,12 +158,14 @@ const app = {
         audio.ontimeupdate = function () {
             const progressPercent = Math.floor(this.currentTime / this.duration * 100)
             progress.value = progressPercent
+            progress.style.setProperty('--percent', progressPercent + '%');
         }
 
         // when progress bar is updated (tua song)
         progress.onchange = function () {
             const seekTime = this.value * audio.duration / 100
             audio.currentTime = seekTime
+            progress.style.setProperty('--percent', percent + '%');
         }
 
         // when clicking next song button
@@ -174,6 +176,7 @@ const app = {
                 app.nextSong()
             }
             audio.play()
+            app.render()
         }
 
         // when clicking next song button
@@ -184,6 +187,7 @@ const app = {
                 app.prevSong()
             }
             audio.play()
+            app.render()
         }
 
         // when clicking random button
