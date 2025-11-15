@@ -169,6 +169,10 @@
      /* background: var(--dashboard-bg-color); */
  }
 
+ .playlist .song:active {
+     opacity: 0.6;
+ }
+
  .player .song:hover {
      transform: translateY(-2px);
      box-shadow: 0 8px 25px var(--song-card-shadow-color);

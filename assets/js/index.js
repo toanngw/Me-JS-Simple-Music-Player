@@ -14,6 +14,7 @@ const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random i')
 const repeatBtn = $('.btn-repeat i')
+const playlist = $('.playlist')
 $('footer .year').textContent = new Date().getFullYear();
 
 
@@ -92,7 +93,7 @@ const app = {
     render() {
         const htmls = this.songs.map((song, index) => {
             return `
-                <div class="song ${index === this.currentIndex ? 'active' : ''}">
+                <div class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
                     <div class="thumb" style="background-image: url(${song.image});">
                     </div>
                     <div class="body">
@@ -106,7 +107,7 @@ const app = {
             `
         })
 
-        $('.playlist').innerHTML = htmls.join('');
+        playlist.innerHTML = htmls.join('');
 
     },
     defineProperties() {
@@ -222,6 +223,23 @@ const app = {
                 audio.play()
             }
         }
+
+        // listen when clicking on playlist
+        playlist.onclick = function (e) {
+            const songNode = e.target.closest('.song:not(.active)')
+            // when click on inactive song or option
+            if (songNode || e.target.closest('.option')) {
+
+                // handle when clicking on inactive song
+                if (songNode) {
+                    app.currentIndex = Number(songNode.dataset.index)
+                    app.loadCurrentSong()
+                    audio.play()
+                    app.render()
+                }
+            }
+        }
+
 
     },
     scrollToActiveSong() {
