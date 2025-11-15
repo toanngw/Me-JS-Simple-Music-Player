@@ -165,14 +165,18 @@ const app = {
             audio.currentTime = seekTime
         }
 
-        // when clicking next song button
-        nextBtn.onclick = function () {
+        function nextSongEvent() {
             if (app.isRandom) {
                 app.randomSong()
             } else {
                 app.nextSong()
             }
             audio.play()
+        }
+
+        // when clicking next song button
+        nextBtn.onclick = function () {
+            nextSongEvent()
         }
 
         // when clicking next song button
@@ -189,6 +193,11 @@ const app = {
         randomBtn.onclick = function () {
             app.isRandom = !app.isRandom
             this.classList.toggle('active')
+        }
+
+        // when song ends, handle playing next song or repeat
+        audio.onended = function () {
+            nextSongEvent()
         }
 
     },
