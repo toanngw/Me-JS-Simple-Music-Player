@@ -23,68 +23,68 @@ const app = {
             name: 'Loser',
             singer: 'Charlie Puth',
             path: './assets/audio/loser.mp3',
-            image: './assets/img/charlie-puth.jpeg'
+            image: './assets/img/loser.jpeg'
         },
         {
             name: 'Stay',
             singer: 'Justin Bieber',
-            path: './assets/audio/Stay.mp3',
-            image: './assets/img/justin-bieber.webp'
+            path: './assets/audio/stay.mp3',
+            image: './assets/img/stay.webp'
         },
         {
-            name: 'See Tình',
-            singer: 'Hoàng Thuỳ Linh',
-            path: './assets/audio/see-tinh.mp3',
-            image: './assets/img/hoangthuylinh.jpeg'
+            name: 'Havana',
+            singer: 'Camila Cabello',
+            path: './assets/audio/havana.mp3',
+            image: './assets/img/havana.png'
         },
         {
-            name: 'Xin Đừng Lặng Im',
-            singer: 'Soobin Hoàng Sơn',
-            path: './assets/audio/xindunglangim.mp3',
-            image: './assets/img/hip-hop.jpeg'
-        },
-        {
-            name: 'Thiên Lý Ơi',
+            name: 'Chúng ta...',
             singer: 'J97',
-            path: './assets/audio/thienlyoi.mp3',
-            image: './assets/img/j97.jpeg'
+            path: './assets/audio/chungtaroisehanhphuc.mp3',
+            image: './assets/img/j97.jpg'
         },
         {
-            name: 'Xin Đừng Lặng Im',
-            singer: 'Soobin Hoàng Sơn',
-            path: './assets/audio/xindunglangim.mp3',
-            image: './assets/img/hip-hop.jpeg'
+            name: 'Uptown Funk',
+            singer: 'Mark Ronson',
+            path: './assets/audio/uptownfunk.mp3',
+            image: './assets/img/uptownfunk.webp'
         },
         {
-            name: 'Xin Đừng Lặng Im',
-            singer: 'Soobin Hoàng Sơn',
-            path: './assets/audio/xindunglangim.mp3',
-            image: './assets/img/hip-hop.jpeg'
+            name: 'My Eyes',
+            singer: 'Travis Scott',
+            path: './assets/audio/myeyes.mp3',
+            image: './assets/img/myeyes.jpg'
         },
         {
-            name: 'Xin Đừng Lặng Im',
-            singer: 'Soobin Hoàng Sơn',
-            path: './assets/audio/xindunglangim.mp3',
-            image: './assets/img/hip-hop.jpeg'
+            name: 'Comethru',
+            singer: 'Jeremy Zucker',
+            path: './assets/audio/comethru.mp3',
+            image: './assets/img/comethru.jpg'
         },
         {
-            name: 'Xin Đừng Lặng Im',
-            singer: 'Soobin Hoàng Sơn',
-            path: './assets/audio/xindunglangim.mp3',
-            image: './assets/img/hip-hop.jpeg'
+            name: 'Cornfield Chase',
+            singer: 'Hans Zimmer',
+            path: './assets/audio/cornfieldchase.mp3',
+            image: './assets/img/cornfieldchase.jpeg'
         },
         {
-            name: 'Xin Đừng Lặng Im',
-            singer: 'Soobin Hoàng Sơn',
-            path: './assets/audio/xindunglangim.mp3',
-            image: './assets/img/hip-hop.jpeg'
+            name: 'Hold On',
+            singer: 'Justin Bieber',
+            path: './assets/audio/holdon.mp3',
+            image: './assets/img/holdon.webp'
         },
         {
-            name: 'Xin Đừng Lặng Im',
-            singer: 'Soobin Hoàng Sơn',
-            path: './assets/audio/xindunglangim.mp3',
-            image: './assets/img/hip-hop.jpeg'
+            name: 'Closer',
+            singer: 'The Chainsmokers',
+            path: './assets/audio/closer.mp3',
+            image: './assets/img/closer.jpg'
         },
+        {
+            name: 'A Lot',
+            singer: '21 Savage',
+            path: './assets/audio/alot.mp3',
+            image: './assets/img/alot.jpg'
+        }
     ],
     render() {
         const htmls = this.songs.map((song, index) => {
