@@ -121,7 +121,7 @@ const app = {
                     <div class="thumb" style="background-image: url(${song.image});">
                     </div>
                     <div class="body">
-                        <h4 class="title">${song.name}</h4>
+                        <h5 class="title">${song.name}</h5>
                         <p class="author">${song.singer}</p>
                     </div>
                     <div class="option">
@@ -197,7 +197,7 @@ const app = {
         }
 
         // when progress bar is updated (tua song)
-        progress.onchange = function () {
+        progress.oninput = function () {
             const percent = this.value
             const seekTime = this.value / 100 * audio.duration
             audio.currentTime = seekTime
